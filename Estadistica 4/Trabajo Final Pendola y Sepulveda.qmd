@@ -1,0 +1,621 @@
+---
+title: "Percepcion de Inseguridad Segun Orientacion Politica"
+subtitle: "Estadistica IV"
+author: "Tomás Péndola y Benjamin Sepulveda"
+date: "2025-05-29"
+lang: es
+format: html
+editor: visual
+---
+
+# Índice
+
+1.  Introducción .................... 1
+2.  Marco Teórico .................. 2
+3.  Metodología .................... 3
+4.  Análisis Factorial Exploratorio ... 4
+5.  Análisis de Conglomerados ........ 5
+6.  Análisis de Correspondencias Múltiples ... 6
+7.  Análisis Conjunto .............. 7
+8.  Conclusiones ................... 8
+9.  Bibliografía ................... 9
+
+# Introducción
+
+En el último tiempo debido a diversos factores, como escándalos dentro del gobiernos, como el caso fundaciones y sobretodo debido al clima electoral chileno se tiene de hablar mucho sobre la confianza que se tiene sobre las diversas instituciones e incluso se llega a comparar con otros países, donde gobiernan partidos o gobernantes de corte más autoritario y cercanos a la derecha, entonces surge la pregunta de ¿Qué tanta diferencia existe en la confianza institucional entre países dirigidos por presidente de derecha y de izquierda en América Latina?
+
+La investigación usará la base de datos de Latinobarómetro en su última oleada, la de 2024 para ser específicos, se centra en comparar la confianza institucional usando las variables, "P14ST.E", que mide la Confianza en el gobierno, "P14ST.F", que mide la Confianza en el poder judicial, "P14ST.G" , que mide Confianza en los partidos políticos, "P14STGBS.B", que mide la Confianza en la policía, junto a las variables de EDAD, REEDUC.1 que mide la educación del encuestado, e IDENPA que identifica el país de quien responde la encuesta. Usando estas variables estableceremos que nuestro objetivo general es describir la diferencia entre los países dirigidos por presidentes de izquierda y presidentes de derecha, bajo los objetivos específicos siendo:
+
+-   Caracterizar los patrones de agrupamiento de países según perfiles de confianza institucional y su relación con la orientación política de sus gobiernos
+
+-   Analizar las asociaciones entre orientación gubernamental y niveles específicos de confianza institucional mediante análisis de correspondencias
+
+Ademas como hipótesis central tenemos que:
+
+-   Países con presidentes de Derecha podrían mostrar mayor confianza en el gobierno a diferencia de Países con presidentes de Izquierda que mostraron índices más bajos
+
+"P14ST.K", que mide la Confianza en los medios de comunicación y la variable "P12STGBS.A" que mide la Satisfacción con la Democracia (variables que se podrían eliminar)
+
+Finalmente este informe se estructura en cuatro secciones principales: primero, se presenta el marco teórico sobre confianza institucional; segundo, se detalla la metodología y tratamiento de datos; tercero, se aplican tres modelos estadísticos (AFE, clustering y ACM) para analizar los patrones de confianza; finalmente, se discuten los hallazgos y sus implicancias para la comprensión de la legitimidad política en América Latina.
+
+FALTA PONER EL RESUMEN DE TODO LO QUE SE VE DENTRO DEL INFORME
+
+# Marco Teórico
+
+Para proceder con el análisis en primera instancia se tiene que entender que es la "confianza institucional" , autores como Morales (2008) y Campo Garcia (2018) usando a Easton (1975) establecen que:
+
+"La confianza hacia las instituciones puede ser entendida como una forma de apoyo "difuso" al régimen político expresado en actitudes favorables a la democracia, o como un respaldo "específico" según el desempeño y los resultados alcanzados por el gobierno o las autoridades políticas (Morales, 2008, p.4) 
+
+Coincidiendo a grandes rasgos con Estella de Noriega (2020) que reconoce que la confianza institucional puede llegar a detectar sobre qué es la confianza en instituciones llega a entender, siendo que las divide en 2 partes, la primera tiene que con el sistema jurídico que es la que menos atención a llegado a recibir y la segunda sobre el gobierno central, que si ha tenido el foco principal, pues es la que Latinoamérica ha desarrollado para mostrar que la confianza institucional es baja pero a pesar de ello el miso Estella de Noriega (2020 )al citar a Algan reconoce “se necesita más investigación sobre la cuestión de la confianza institucional” (2018: 312).
+
+igualmente Campos Garcia, expande más, para la autora la capacidad de una confianza institucional positiva es parte de un elemento más grande siento este el concepto de buen gobierno, que coincidiendo con lo que Morales (2020) establece como el punto contrario a lo que produce la desconfían siendo esta una crisis de legitimidad, que puede producir lo que en Chile terminó siendo en el 2018 el estallido social.
+
+Pero aparte de ellos, todos los autores componen que la confianza institucional puede ser dividida en dimensiones como la confianza en las fuerzas armadas o de orden, en el poder judicial, parlamento, gobierno, presidente e incluso los partidos políticos, entre otras dimensiones. Precisamente la razón por la cual se ha decido trabajar la variable de la Satisfacción de la Democracia. Igualmente Morales (2020) considera que ante la una baja confianza en las instituciones de orden público como carabineros en Chile, genera un distanciamiento que si se suma al creciente distanciamiento de los partidos políticos será el culmine de lo que se conoce como “malestar con la representación democrática”, que se suma a las percepciones negativas ante la desigualdad y los conflictos entre ricos y pobres. Siendo esto muy contrario a las mismas declaraciones del mismo Morales en (2008) donde en Chile
+
+es posible distinguir entre las instituciones de orden y jerarquizadas como las Fuerzas Armadas y la Iglesia, e instituciones de conflicto como los partidos y Congreso. Las primeras, por cierto, presentan niveles de confianza significativamente más elevados (p.4)
+
+Finalmente como se ha trabajar con la base de datos del Latinobarómetro, se busca trabajar con cierto países, específicamente con Chile, Argentina, Perú y El Salvador, esta selección se realiza bajo una condicionante de Torcal y Bargsted, que especifican que Latinoamérica sufre algo llamado el “giro hacia la izquierda” donde ciertos países de Latinoamerica sufren una mejora considerable dentro de lo que es su confianza en las instituciones de gobierno, como el presidente o el parlamento (2015), según los autores este crecimiento ocurre de manera constante hasta el 2013 donde se destacan finalmente esto llega a ocurrir debido a dos factores que son:
+
+La actuación conjunta de ciertas reformas institucionales y la lucha directa contra la corrupción y la desigualdad (especialmente en América Latina), serían suficientes para mejorar la situación de muchos de los países con respecto de los niveles más bajos de confianza en las instituciones representativas (Torcal y Bargsted, 2015, p.29)
+
+Hoy en día se puede hablar más posiblemente de un giro contrario pues ciertos países de Latinoamerica han decidido votar hacia la derecha y muchos países como los que se han decido trabajar en este estudio como El Salvador con Nayib Bukele o Argentina con Javier Milei, pero otros como Chile con Gabriel Boric o Perú con José Jeri, el giro hacia la izquierda de Torcal y Bargsted, cosa que lleva a preguntarse entonces a qué instituciones estos países que han girado hacia la derecha tienden a sentir más confianza y si las instituciones de países que se han mantenido dentro del giro a la izquierda aún sienten una gran confianza hacia las instituciones del gobierno central.
+
+# Metodología
+
+En primera instancia para el inicio del trabajo se usaron una serie de "librerías" de R
+
+```{r librerias, echo=FALSE, warning=FALSE, message=FALSE, collapse=TRUE}
+
+pacman::p_load(tidyverse,
+               dplyr,
+               haven, 
+               readstata13,
+               cluster,
+               factoextra, 
+               NbClust, 
+               psych, 
+               GPArotation, 
+               FactoMineR, 
+               ca, 
+               corrplot, 
+               reshape2, 
+               sjPlot,
+               ggrepel,
+               broom,
+               gtsummary,
+               DescTools,
+               gginference,
+               rempsyc,
+               flextable)
+
+
+options(scipen = 999) # para desactivar notacion cientifica
+rm(list = ls()) # para limpiar el entorno de trabajo
+
+```
+
+Como se ha establecido antes se ha de trabajar la base de datos entregados por la base datos del Latinobarometro con ciertas variables específicamente;
+
+```{r, Base de Datos y Variables, echo=FALSE, warning=FALSE, message=FALSE, collapse=TRUE}
+
+Latinobarometro_2024 <- read_sav("Latinobarometro_2024_Spss_esp_v20250817.sav")
+
+data <- Latinobarometro_2024 %>% select(P14ST.E, #Confianza en el gobierno  
+                                        P14ST.F, #Confianza en el poder judicial
+                                        P14ST.G, #Confianza en los partidos políticos
+                                        P14STGBS.B, #Confianza en la policía
+                                        P14ST.K, #Confianza en los medios de comunicación 
+                                        P12STGBS.A, # Satisfaccion con la Democracia
+                                        IDENPA) #País
+
+```
+
+Variables de Confianza:
+
+-   P14ST.E, Confianza en el Gobierno
+
+-   P14ST.F, Confianza en el Poder Judicial
+
+-   P14ST.G, Confianza en los Partidos Políticos
+
+-   P14STGBS.B, Confianza en la policía
+
+-   P14ST.K, Confianza en los Medios de Comunicación
+
+-   P12STGBS.A, Satisfacción con la Democracia
+
+Y la variable de control para el resto del estudio:
+
+-   IDENPA, País del Encuestado
+
+Antes de proceder plenamente con el análisis se realización una serie de tratamientos para las distintas variables, primero se limito la variable IDENPA
+
+```{r, Variable IDENPA, echo=FALSE, warning=FALSE, message=FALSE, collapse=TRUE}
+
+data <- data %>% filter(IDENPA %in% c(32, 152, 222, 604))
+
+```
+
+Para los propósitos del trabajo se limito a 4 países, 2 cuya orientación fuera de Izquierda, que son el 152 que es Chile y el 604 siendo este Perú, por otra parte se escogió 2 cuya orientación fuera de derecha, que son el 32 siendo Argentina y el 222 que es El Salvador.
+
+Como paso siguiente se renombraron las variables de confianza para su mas fácil identificación
+
+```{r, Renombramiento de Variables, echo=FALSE, warning=FALSE, message=FALSE, collapse=TRUE}
+
+data <- data %>%
+  rename(
+    conf_gobierno      = P14ST.E,
+    conf_poder_judicial = P14ST.F,
+    conf_partidos      = P14ST.G,
+    conf_policia       = P14STGBS.B,
+    conf_medios        = P14ST.K,
+    satisf_democracia  = P12STGBS.A)
+
+# Tratamiento de los Na
+
+data <- data %>%
+  mutate(across(c(conf_gobierno, conf_poder_judicial, conf_partidos, 
+                  conf_policia, conf_medios, satisf_democracia),
+                ~ ifelse(. %in% c(-1, -2), NA, .)))
+
+```
+
+Quedando las variables de confianza como:
+
+-   P14ST.E = conf_gobierno
+
+-   P14ST.F = conf_poder_judicial
+
+-   P14ST.G = conf_partidos
+
+-   P14STGBS.B = conf_policia
+
+-   P14ST.K = conf_medios
+
+-   P12STGBS. = Asatisf_democracia
+
+Ademas se opto por tratar directamente los datos perdidos (NA) de estas variables que eran reconocidos como -1 y -2
+
+Seguido se crea una base separada del resto que únicamente contenga la base datos limpia sin los Na y renombrar las variable IDENPA, para que sea categórica y los países pasen de ser códigos numéricos a nombres directamente
+
+```{r, Omicion de los NA, echo=FALSE, warning=FALSE, message=FALSE, collapse=TRUE}
+
+data_limpia <- na.omit(data)
+
+# Recodificar la variable de Pais
+
+data_limpia <- data_limpia %>%
+  mutate(Pais = case_when(
+    IDENPA == 32 ~ "Argentina",
+    IDENPA == 152 ~ "Chile",
+    IDENPA == 222 ~ "El Salvador",
+    IDENPA == 604 ~ "Peru", 
+    TRUE ~ NA_character_))
+```
+
+Ademas se opto generar otra base datos que contuviera las variables de confianza en formato cualitativo
+
+```{r,Base de Datos de Confianza en Formato Cuali, echo=FALSE, warning=FALSE, message=FALSE, collapse=TRUE}
+
+# Recodificar cada variable con etiquetas específicas
+data_limpia_categorica <- data_limpia %>%
+  mutate(
+    # Recodificar conf_gobierno
+    conf_gobierno = case_when(
+      conf_gobierno == 1 ~ "Mucha confianza",
+      conf_gobierno == 2 ~ "Algo de confianza", 
+      conf_gobierno == 3 ~ "Poca confianza",
+      conf_gobierno == 4 ~ "Ninguna confianza",
+      conf_gobierno %in% c(-1, -2) ~ NA_character_,
+      TRUE ~ NA_character_
+    ),
+    
+    # Recodificar conf_poder_judicial
+    conf_poder_judicial = case_when(
+      conf_poder_judicial == 1 ~ "Mucha confianza",
+      conf_poder_judicial == 2 ~ "Algo de confianza",
+      conf_poder_judicial == 3 ~ "Poca confianza", 
+      conf_poder_judicial == 4 ~ "Ninguna confianza",
+      conf_poder_judicial %in% c(-1, -2) ~ NA_character_,
+      TRUE ~ NA_character_
+    ),
+    
+    # Recodificar conf_partidos
+    conf_partidos = case_when(
+      conf_partidos == 1 ~ "Mucha confianza",
+      conf_partidos == 2 ~ "Algo de confianza",
+      conf_partidos == 3 ~ "Poca confianza",
+      conf_partidos == 4 ~ "Ninguna confianza", 
+      conf_partidos %in% c(-1, -2) ~ NA_character_,
+      TRUE ~ NA_character_
+    ),
+    
+    # Recodificar conf_policia
+    conf_policia = case_when(
+      conf_policia == 1 ~ "Mucha confianza",
+      conf_policia == 2 ~ "Algo de confianza",
+      conf_policia == 3 ~ "Poca confianza",
+      conf_policia == 4 ~ "Ninguna confianza",
+      conf_policia %in% c(-1, -2) ~ NA_character_, 
+      TRUE ~ NA_character_
+    ),
+    
+    # Recodificar conf_medios
+    conf_medios = case_when(
+      conf_medios == 1 ~ "Mucha confianza",
+      conf_medios == 2 ~ "Algo de confianza",
+      conf_medios == 3 ~ "Poca confianza",
+      conf_medios == 4 ~ "Ninguna confianza",
+      conf_medios %in% c(-1, -2) ~ NA_character_,
+      TRUE ~ NA_character_
+    ),
+    
+    # Recodificar satisf_democracia (si usa la misma escala)
+    satisf_democracia = case_when(
+      satisf_democracia == 1 ~ "Muy Satisfecho",
+      satisf_democracia == 2 ~ "Algo Satisfecho", 
+      satisf_democracia == 3 ~ "Poca Satisfecho",
+      satisf_democracia == 4 ~ "Nada Satisfecho",
+      satisf_democracia %in% c(-1, -2) ~ NA_character_,
+      TRUE ~ NA_character_
+    )
+  ) %>%
+  # Convertir a factores ordenados
+  mutate(across(c(conf_gobierno, conf_poder_judicial, conf_partidos,
+                  conf_policia, conf_medios),
+                ~ factor(., levels = c("Mucha confianza", "Algo de confianza", 
+                                       "Poca confianza", "Ninguna confianza"))))
+```
+
+Para los propósitos de este trabajo se han de trabajar 3 modelos siendo todos estos modelos exploratorios, el primero de ellos se trata de un Modelo de Análisis Factorial Exploratorio (AFE), este se escoge a modo de exploración de la base de datos con la que se ha trabajar, y ver las variables latentes que pueden explicar en como se agrupan las variables que miden la confianza a lo largo de las instituciones gubernamentales. El segundo es un Análisis de Conglomerados o Cluster para ver como se agrupan las variables de confianza según los países elegidos. Finalmente como tercer modelo se hizo un Análisis de Correspondencias Múltiples para finalmente ver como los países seleccionados se agrupan en que sectores y que variables de confianza se encuentran mas cerca de cual país.
+
+## Analisis Factorial Exploratorio (EFA) 
+
+El Análisis Factorial Exploratorio es un análisis que usa variables cuantitativas de variables Likert para medir variables latentes, estas ultimas no son observables usualmente dentro de las ciencias sociales, ergo la necesidad de medir si es que existen o no.
+
+Como primer Paso se seleccionaron las variables para el EFA
+
+```{r, Variables para el EFA, echo=FALSE, warning=FALSE, message=FALSE, collapse=TRUE}
+
+variables_afe <- data_limpia %>%
+  select(conf_gobierno, conf_poder_judicial, conf_partidos, conf_policia, conf_medios, satisf_democracia) %>%
+  na.omit()
+```
+
+Seguido de ello se realizaron los test de Kaiser-Meyer-Olkin o bien llamdo KM0 y el test de esfericidad de Bartlett, estos test se realizan para dos cosas en especifico, el KM0 mide la proporcion de la varianza de las variables y permiten determinar si estas son o no factorizables, dependiendo de los resultados que pueda mostrar estos se pueden considerar aceptables para su uso o no, entre un rango de 0.90 y 0.50 es aceptable para su uso. Mientras el test de Esfericidad de Bartlett es una prueba de hipótesis de que no hay correlaciones significativas entre las variables. sera significativo si es que el p \< 0.05, sugiere que el análisis factorial es apropiado.
+
+```{r, Determinar el Numero de Factores, echo=FALSE, warning=FALSE, message=FALSE, collapse=TRUE}
+
+# Scree plot
+
+scree(variables_afe, factors = FALSE)
+
+# Análisis paralelo
+
+fa.parallel(variables_afe, fa = "fa")
+```
+
+Seguido decidimos producir 2 gráficos para determinar el numero de factores a utilizar, siendo este el gráfico de sedimentacion o coloquialmente conocido como el gráfico del codo debido a que marca el numero de factores cuando se quiebra la recta y se regulariza la recta y el otro es el gráfico de análisis paralelo que ajusta mejor la recta para mostrar si es que puede mas factores posibles
+
+```{r Análisis factorial exploratorio, echo=FALSE, warning=FALSE, message=FALSE, collapse=TRUE}
+
+afe <- fa(variables_afe, 
+          nfactors = 3,  # Ajustar según scree plot y análisis paralelo
+          rotate = "varimax",  # Rotación ortogonal
+          fm = "minres")  # Método de extracción
+
+print(afe, digits = 3, sort = TRUE) 
+fa.diagram(afe)
+
+```
+
+Con ello se realiza el análisis factorial, escogiendo ajustar por el numero de factores recomendados por el gráfico de sedimento y el análisis paralelo. Y se analiza como el numero de factores recomendados, revisando como se relacionan con variables latentes.
+
+```{r, Confiabilidad de Escalas, echo=FALSE, warning=FALSE, message=FALSE, collapse=TRUE}
+
+alpha(variables_afe)
+
+```
+
+Finalmente se mide la confiabilidad de las Escalas a través del Alpha de Cronbach, midiendo una a una en las variables usadas que tan confiables son en rangos de 1 a 0.7 se consideran, valores aceptables y que son altamente confiables en lo que respecta el AFE
+
+## Análisis de Conglomerados
+
+El análisis de conglomerados es un tipo de análisis que permite ver como se distribuyen los datos en grupos llamados conglomerados o clusters y como estos se agrupan usando variables cualitativas y cuantitativas, cabe destacar que los conglomerados son homegenios en su interior pero también son heterogéneos hacia el exterior.
+
+Como primer paso se escogen las variables que serán utilizadas para el Análisis de Clusters
+
+```{r, Variables del Cluster, echo=FALSE, warning=FALSE, message=FALSE, collapse=TRUE}
+
+
+datos_cluster <- data_limpia %>%
+  select(conf_gobierno, conf_poder_judicial, conf_partidos, conf_policia, conf_medios, satisf_democracia, IDENPA) %>%
+  na.omit() %>%  # Eliminar missing values
+  scale()         # Estandarizar variables (importante para clustering)
+
+```
+
+Como segundo paso se procede a determinar el numero optimo de cluesters a través de dos gráficos, el primero al igual que el modelo anterior se parte con el gráfico de sedimentos o llamado del codo para mostrar el numero optimo de clusters, mientras que la silueta evalúa la calidad de los clusters, midiendo que tan bien se separan los clusters, haciendo que un valor promedio alto indica una buena estructura.
+
+```{r, Numero Optimo de Cluster, echo=FALSE, warning=FALSE, message=FALSE, collapse=TRUE}
+
+fviz_nbclust(datos_cluster, kmeans, method = "wss") + 
+  ggtitle("Método del Codo")
+
+fviz_nbclust(datos_cluster, kmeans, method = "silhouette") +
+  ggtitle("Método de la Silueta")
+```
+
+Para el tercer paso, se procedió a calcular los K-means del archivo de Cluster, en otras palabras se procedió a agrupar las observación en 4 clusters distintivos, que se arman desde una semilla de casos aleatorios, esto permite entonces que la diferencia entre clusters sea la mas grande posible y aumenta la similitud dentro de un cluster
+
+```{r, K-means del Cluster, echo=FALSE, warning=FALSE, message=FALSE, collapse=TRUE}
+
+set.seed(123)  # Para reproducibilidad
+kmeans_result <- kmeans(datos_cluster, centers = 4, nstart = 25)
+
+```
+
+Con el cuarto paso ya se procedió plenamente a visualizar los resultados del clustering, se escogió una paleta de colores distinta para Cluster haciendo así mas fácil su distinción del resto
+
+```{r, Visualizacion del Cluster, echo=FALSE, warning=FALSE, message=FALSE, collapse=TRUE}
+
+fviz_cluster(kmeans_result, data = datos_cluster, 
+             palette = c("#2E9FDF", "#00AFBB", "#E7B800", "#FF0000"),
+             geom = "point",
+             ellipse.type = "convex",
+             ggtheme = theme_bw())
+
+```
+
+Finalmente para el Quinto se busco caracterizar los Clusters debido a que estos se encontraban muy conectados los unos con los otros, entonces se busco una forma de caracterizarlos de la mejor manera posible
+
+```{r, Caracterizacion de los Clusters, echo=FALSE, warning=FALSE, message=FALSE, collapse=TRUE}
+
+
+latinobarometro_cluster <- data %>%
+  na.omit() %>%
+  mutate(cluster = as.factor(kmeans_result$cluster))
+
+# Ver perfiles de clusters
+
+perfiles_cluster <- latinobarometro_cluster %>%
+  group_by(cluster) %>%
+  summarise(
+    n = n(),
+    conf_gobierno = mean(conf_gobierno, na.rm = TRUE),
+    conf_judicial = mean(conf_poder_judicial, na.rm = TRUE),
+    conf_partidos = mean(conf_partidos, na.rm = TRUE),
+    conf_medios = mean(conf_medios, na.rm = TRUE),
+    conf_policia = mean(conf_policia, na.rm = TRUE),
+    satis_democracia = mean(satisf_democracia, na.rm = TRUE))
+
+print(perfiles_cluster)
+```
+
+## Análisis de Correspondencias Múltiples
+
+El Análisis de Correspondencias Múltiples se trata de un tipo de análisis que convierte las variables y sus resultado en coordenadas dentro de un plano, permitiendo en explorar patrones en respuestas de cuestionarios, es por ello que principalmente requiere el uso de variables de carácter categórico pues usa tablas de contingencia para producir.
+
+Es por ello el primer paso fue la creación de 6 tablas de contingencia para hacer posible la producción de un análisis de correspondencias múltiples y ademas a cada tabla se le aplico una prueba de Chi-cuadrado, para evaluar la independencia de cada tabla de contingencia, todo esto usando la base datos "data_limpia_categorica", pues los datos ya fueron convertidos a variables de carácter categórico previamente.
+
+La primera Tabla es de Confianza en el Gobierno por País
+
+```{r, Tabla Pais por Confianza en el Gobierno, echo=FALSE, warning=FALSE, message=FALSE, collapse=TRUE}
+
+
+sjPlot::sjt.xtab(var.row = data_limpia_categorica$Pais, # Variable independiente
+                 var.col = data_limpia_categorica$conf_gobierno, # Variable dependiente
+                 show.summary = F, # para que no enseñe información del tipo summary
+                 emph.total = T, # para destacar visualmente los totales de la fila
+                 show.row.prc = T, # porcentaje fila
+                 show.col.prc = T, # porcentaje columna
+                 encoding= "UTF-8") # para que lea los archivos bajo el alfabeto español
+
+chi_result_1 <- chisq.test(table(data_limpia_categorica$Pais, data_limpia$conf_gobierno))
+
+stats.table_1 <- tidy(chi_result_1, conf_int = T)
+
+nice_table(stats.table_1)
+
+
+```
+
+La Segunda Tabla es de País por Confianza en el poder Judicial
+
+```{r, Pais por Confianza en el poder judicial, echo=FALSE, warning=FALSE, message=FALSE, collapse=TRUE}
+
+sjPlot::sjt.xtab(var.row = data_limpia_categorica$Pais, # Variable independiente
+                 var.col = data_limpia_categorica$conf_poder_judicial, # Variable dependiente
+                 show.summary = F, # para que no enseñe información del tipo summary
+                 emph.total = T, # para destacar visualmente los totales de la fila como suma
+                 show.row.prc = T, # porcentaje fila
+                 show.col.prc = T, # porcentaje columna
+                 encoding= "UTF-8") # para que lea los archivos bajo el alfabeto español
+
+chi_result_2 <- chisq.test(table(data_limpia_categorica$Pais, data_limpia$conf_poder_judicial))
+
+stats.table_2 <- tidy(chi_result_2)
+
+nice_table(stats.table_2)
+
+
+```
+
+La Tercera Tabla es de País por Confianza en el Partidos Políticos
+
+```{r, Pais por Confianza en Partidos, echo=FALSE, warning=FALSE, message=FALSE, collapse=TRUE}
+
+sjPlot::sjt.xtab(var.row = data_limpia_categorica$Pais, # Variable independiente
+                 var.col = data_limpia_categorica$conf_partidos, # Variable dependiente
+                 show.summary = F, # para que no enseñe información del tipo summary
+                 emph.total = T, # para destacar visualmente los totales de la fila como suma
+                 show.row.prc = T, # porcentaje fila
+                 show.col.prc = T, # porcentaje columna
+                 encoding= "UTF-8") # para que lea los archivos bajo el alfabeto español
+
+chi_result_3 <- chisq.test(table(data_limpia_categorica$Pais, data_limpia$conf_partidos))
+
+stats.table_3 <- tidy(chi_result_3)
+
+nice_table(stats.table_3)
+
+```
+
+La Cuarta Tabla es de País por Confianza en la Policía
+
+```{r, Pais por Confianza en la Policia, echo=FALSE, warning=FALSE, message=FALSE, collapse=TRUE}
+
+sjPlot::sjt.xtab(var.row = data_limpia_categorica$Pais, # Variable independiente
+                 var.col = data_limpia_categorica$conf_policia, # Variable dependiente
+                 show.summary = F, # para que no enseñe información del tipo summary
+                 emph.total = T, # para destacar visualmente los totales de la fila como suma
+                 show.row.prc = T, # porcentaje fila
+                 show.col.prc = T, # porcentaje columna
+                 encoding= "UTF-8") # para que lea los archivos bajo el alfabeto español 
+
+chi_result_4 <- chisq.test(table(data_limpia_categorica$Pais, data_limpia$conf_policia))
+
+stats.table_4 <- tidy(chi_result_4)
+
+nice_table(stats.table_4)
+
+```
+
+La Quinta Tabla es de País por Confianza en los Medios de Comunicación
+
+```{r, Pais por Confiaza en los Medios de Comunicacion, echo=FALSE, warning=FALSE, message=FALSE, collapse=TRUE}
+
+sjPlot::sjt.xtab(var.row = data_limpia_categorica$Pais, # Variable independiente 
+                 var.col = data_limpia_categorica$conf_medios, # Variable dependiente
+                 show.summary = F,  # para que no enseñe información del tipo summary
+                 emph.total = T, # para destacar visualmente los totales de la fila como suma
+                 show.row.prc = T, # porcentaje fila
+                 show.col.prc = T, # porcentaje columna
+                 encoding= "UTF-8") # para que lea los archivos bajo el alfabeto español
+
+chi_result_5 <- chisq.test(table(data_limpia_categorica$Pais, data_limpia$conf_medios))
+
+stats.table_5 <- tidy(chi_result_5)
+
+nice_table(stats.table_5)
+
+```
+
+La Sexta Tabla es de País por Satisfacción con la Democracia
+
+```{r, Pais por Satisfaccion con la democracia, echo=FALSE, warning=FALSE, message=FALSE, collapse=TRUE}
+
+sjPlot::sjt.xtab(var.row = data_limpia_categorica$Pais, # Variable independiente 
+                 var.col = data_limpia_categorica$satisf_democracia, # Variable dependiente
+                 show.summary = F,  # para que no enseñe información del tipo summary
+                 emph.total = T, # para destacar visualmente los totales de la fila como suma
+                 show.row.prc = T, # porcentaje fila
+                 show.col.prc = T, # porcentaje columna
+                 encoding= "UTF-8") # para que lea los archivos bajo el alfabeto español
+
+chi_result_6 <- chisq.test(table(data_limpia_categorica$Pais, data_limpia$satisf_democracia))
+
+stats.table_6 <- tidy(chi_result_6)
+
+nice_table(stats.table_6)
+
+```
+
+Como siguiente paso se procedió a realizar el análisis de correspondencias múltiples usando la base de datos de "data_limpia_categorica"
+
+```{r, Análisis de correspondencia múltiple, echo=FALSE, warning=FALSE, message=FALSE, collapse=TRUE}
+
+ACM <- data_limpia_categorica %>% 
+  dplyr::select(conf_gobierno, conf_poder_judicial, conf_partidos,
+                conf_policia, conf_medios, satisf_democracia, Pais) %>%
+  na.omit() %>%
+  as.data.frame()
+
+ACM <- FactoMineR::MCA(ACM, graph = FALSE)
+
+```
+
+Como tercer paso se busco medir la varianza de las variables del AMC, para saber cuantas dimensiones reales ha y que retener y ademas para medir que tan importantes son
+
+```{r, Eigen values, echo=FALSE, warning=FALSE, message=FALSE, collapse=TRUE}
+
+eig_val <- factoextra::get_eigenvalue(ACM)
+head(eig_val, 10)
+
+fviz_screeplot(ACM, addlabels = TRUE)
+
+```
+
+Como paso final se hizo un gráfico de disperción para ver claramente en que sector se agrupaban las variables seleccionadas dentro del plano Cartesiano
+
+```{r, Grafico de las Dispersiones, cho=FALSE, warning=FALSE, message=FALSE, collapse=TRUE}
+
+fviz_mca_var(ACM, #objeto tipo lista con resultados mca
+             col.var = "contrib", #definición de los colores a partir del valor cos2
+             gradient.cols = c("#00AFBB", "#E7B800", "#FC4E07", "#458B74", "#104E8B", "#FFFF00"), #definición de la paleta de colores
+             repel = TRUE, # evitar solapamientos de etiquetas,
+             max.overlaps = "ggrepel.max.overlaps", #aumentar el tamaño de solapamientos
+             ggtheme = theme_minimal())
+```
+
+# Resultados
+
+## Análisis Factorial Exploratorio
+
+El análisis factorial exploratorio permitió identificar la estructura subyacente de las percepciones de confianza institucional en los cuatro países estudiados. Los indicadores previos mostraron que el análisis era estadísticamente adecuado: el índice KMO fue de 0.82, considerado meritorio, y el test de esfericidad de Bartlett resultó altamente significativo (χ² = 6839.19, p \< 0.001), indicando que las correlaciones entre las variables son suficientes para extraer factores comunes.
+
+La solución factorial final extrajo tres factores mediante el método minres y rotación varimax. El primer factor agrupó confiabilidad en el gobierno y satisfacción con la democracia, conformando una dimensión de legitimidad política central, es decir, una evaluación global del funcionamiento democrático y del desempeño gubernamental. El segundo factor estuvo dominado por la confianza en los partidos políticos, con una carga factorial de 0.936, lo que confirma que este tipo de institución opera como un componente independiente dentro del mapa de la confianza ciudadana, consistente con la literatura sobre desafección partidaria en la región. El tercer factor agrupó la confianza en la policía, los medios de comunicación y el poder judicial, conformando una dimensión de orden público y comunicación, que refleja percepciones sobre instituciones encargadas del control social y de la producción y transmisión de información. Cabe destacar que la satisfacción con la democracia mostró cargas más dispersas, lo que sugiere que, aunque se relaciona con la evaluación del gobierno, no constituye una dimensión independiente.
+
+En términos de confiabilidad, el modelo arrojó un alfa de Cronbach de 0.79, indicando una consistencia interna adecuada. En conjunto, el AFE evidencia que la confianza institucional es un fenómeno multidimensional, articulado en torno a evaluaciones del gobierno, del sistema de representación formal y de instituciones asociadas al orden y la comunicación pública.
+
+## Análisis de Conglomerados
+
+Para complementar el análisis factorial, se realizó una clasificación de individuos mediante el algoritmo de k-means, con el objetivo de identificar perfiles ciudadanos según sus patrones de confianza. El número óptimo de clusters se definió en 4, basado en el método del codo —que mostró un quiebre claro en esa cantidad— y en la silueta, que aunque favorecía una solución menor, mantuvo valores aceptables para cuatro grupos. La solución mostró una cohesión interna adecuada y un tamaño de clusters equilibrado (rango: 966 a 1.229 casos).
+
+Los perfiles generados ofrecen una mirada sustantiva sobre las formas de confianza en la región. El Cluster 1, con valores altos en casi todas las instituciones, representa a un grupo de institucionalistas amplios, que confían tanto en instituciones políticas como en instituciones del orden. El Cluster 2 mostró la confianza más alta en el gobierno y la mayor satisfacción con la democracia, configurando un perfil pro-gobierno y pro-régimen democrático, donde la legitimidad se articula en torno a la evaluación positiva del Ejecutivo. El Cluster 3 presentó los promedios más bajos en todas las dimensiones, constituyendo un grupo de desconfianza generalizada, caracterizado por una ruptura profunda con el sistema político y con las instituciones públicas. Finalmente, el Cluster 4 mostró niveles intermedios, con un patrón de desconfianza selectiva, especialmente hacia la policía y los medios, lo que sugiere una visión crítica pero no completamente desligada del sistema institucional.
+
+En conjunto, los resultados del clustering muestran que la ciudadanía no se distribuye de manera uniforme en sus percepciones, sino que se organiza en grupos con lógicas diferenciadas de apoyo, escepticismo o rechazo institucional. Cuando estos hallazgos se leen junto al AFE, se evidencia que la estructura interna de las percepciones (dimensiones latentes) se traduce en perfiles concretos de confianza, que reflejan distintas formas de relacionamiento con el Estado, el sistema político y las instituciones de control social.
+
+## Analisis Conjunto
+
+La aplicación conjunta del análisis factorial exploratorio (AFE), el análisis de conglomerados y el análisis de correspondencia múltiple (ACM) permite comprender con mayor profundidad la estructura y distribución de la confianza institucional en los países analizados. Cada técnica contribuye desde un ángulo distinto: el AFE identifica las dimensiones latentes que organizan el fenómeno; el clustering revela los perfiles ciudadanos que emergen de esas dimensiones; y el ACM muestra cómo las categorías de respuesta y los países se distribuyen en un espacio común. En conjunto, los tres modelos convergen en la idea de que la confianza institucional es un fenómeno multidimensional, heterogéneo y espacialmente diferenciado por país.
+
+En primer lugar, el AFE evidenció la existencia de tres dimensiones diferenciadas que estructuran la confianza institucional: un eje de legitimidad política central asociado al gobierno y la evaluación democrática; un componente independiente de confianza en los partidos políticos, altamente consistente con la desafección partidaria histórica de la región; y un eje centrado en instituciones del orden y la comunicación (policía y medios). Estas dimensiones no solo muestran que la confianza no se distribuye uniformemente entre las instituciones, sino que también apuntan a distintos tipos de legitimidad: confianza política, confianza representativa y confianza socio-institucional.
+
+El análisis de conglomerados profundiza esta lectura mostrando cómo estas dimensiones se expresan en grupos concretos de ciudadanos. Los cuatro clusters identificados representan formas diferenciadas de articular las dimensiones del AFE. Por ejemplo, el Cluster 1 agrupa a individuos con confianza amplia y transversal, capturando simultáneamente las tres dimensiones del AFE en niveles altos; el Cluster 2 articula altos puntajes en la dimensión de legitimidad política central, evidenciando un fuerte vínculo entre evaluación gubernamental y satisfacción democrática; el Cluster 3 expresa la versión extrema de la dimensión de desconfianza, acumulando valores bajos en todas las instituciones, especialmente en la dimensión política; y el Cluster 4 corresponde a un patrón intermedio de desconfianza selectiva, vinculado al eje de orden/comunicación identificado en el AFE. De este modo, los clusters transforman las dimensiones abstractas del AFE en perfiles sociológicos concretos, que representan modalidades reales de vínculo —o rompimiento— con las instituciones.
+
+Finalmente, el ACM confirma y amplía estas relaciones mostrando que las categorías de respuesta, así como los países, se disponen en el espacio factorial siguiendo patrones coherentes con las dimensiones del AFE y los perfiles del clustering. El Eje 1 del ACM, asociado al continuo confianza–desconfianza, replica la primera dimensión del AFE y separa de manera nítida a los grupos altamente desconfiados (similar al Cluster 3) de aquellos con mayor legitimidad institucional (Clusters 1 y 2). El Eje 2 del ACM reproduce la diferenciación entre instituciones políticas y de orden/comunicación, correspondiéndose con la tercera dimensión del AFE y con los patrones selectivos del Cluster 4. Además, la posición de los países en el mapa factorial coincide con la estructura de los clusters: por ejemplo, países como Argentina y Perú tienden a alinearse con categorías de baja confianza, mientras que El Salvador aparece asociado a categorías de mayor legitimidad, especialmente en instituciones del orden.
+
+Así, la convergencia entre los tres modelos permite sostener que la confianza institucional es un fenómeno no unidimensional, sino estratificado, donde la legitimidad política, la representación partidaria y la credibilidad de instituciones sociales operan de manera diferenciada. A nivel ciudadano, estas dimensiones se combinan para producir perfiles diversos de confianza, que van desde el apoyo amplio al rechazo total. A nivel comparado, la estructura de estas percepciones se organiza espacialmente según el país, reflejando contextos políticos específicos. Este diálogo metodológico entre AFE, clustering y ACM fortalece la validez de los resultados y ofrece una visión integral del carácter complejo, fragmentado y profundamente contextual de la confianza institucional en América Latina.
+
+# Conclusión
+
+Para Concluir con en primera instancia queremos destacar los principales hallazgos del trabajo, el análisis factorial exploratorio demostró que existen 3 dimensiones latentes dentro de las variables que escogimos, las cuales preliminarmente se pueden denominar como:
+
+-   Legitimidad Política del Gobierno Central
+
+-   Confianza Partidaria
+
+-   Confianza en Instituciones de Comunicación y Orden
+
+Para el análisis de Correspondencias Múltiples, se detecto que un país presenta una mayor confianza en las fuerzas del orden y ese fue el salvador, presentando que sus ciudadanos tienen mucha confianza en la fuerza policial, pero que se encuentran algo distantes pero satisfechos con el gobierno y los medios de comunicación, muy en linea de las descripciones de Morande (2008) sobre la confianza en las instituciones de la sociedad, por otra parte Chile se muestra mas bien en los terrenos neutros donde muchas las variables que lo rodean son algo de confianza o algo satisfecho al igual que Argentina y finalmente es Perú quienes sus habitantes no tienen confianza en ninguna institución o partido.
+
+Para el análisis de Cluster se puede detectar 4 grupos principales, el primer de ellos se puede entender como uno de apoyo constante a las instituciones que podría se nombrado como Institucionales, el segundo grupo se puede entender que confía en el gobierno, el tercero como una desconfianza generalizada y el ultimo ya una desconfianza mas selectiva.
+
+Con todo esto, entonces volvamos una vez mas a la hipótesis anteriormente planteada, la cual era "Países con presidentes de Derecha podrían mostrar mayor confianza en el gobierno a diferencia de Países con presidentes de Izquierda que mostraron índices más bajos", encontramos que si existe una mayor confianza en las gobierno si es que quien dirige el mismo país es de derecha pero no exactamente, pues Argentina es dirigido por un presidente de derecha, pero incluso así presenta niveles bajos de confianza, entonces se podría decir que la respuesta es mas parcial que otra cosa, dando a entender que quizás exista una o mas variables que influyen en la confianza institucional, tales como el contexto sociocultural, entre otras.
+
+Igualmente se quiere con esto ultimo destacar la limitación misma de la investigación realizada, pues se considero una base de datos del año pasado, quizás entonces seria recomendable usar tanto una base del mismo y convertir este estudio en uno de carácter longitudinal, ademas de considerar mas variables socialdemocracias como los ingresos, nivel de educación, genero, entre otras.
+
+Igualmente en los que respecta a la confianza generalizada dentro de lo que son los espacios en gubernamentales si se requiere un trabajo mas pesado y concreto, pues sobre partidos políticos y su baja confianza requiere de nuevas formas de representación o mejores formas, sobre la confianza en el gobierno requiere una forma de comunicación desde el oficialismo hacia la ciudadanía mas efectiva
+
+# Bibliografia
+
+del Campo García, M. E. (2018). Buen gobierno y confianza institucional. *Dilemata*, (27), 55–71. Recuperado a partir de <https://www.dilemata.net/revista/index.php/dilemata/article/view/412000214>
+
+Estella, A. (2020): “Confianza institucional en América Latina: un análisis comparado”, Documentos de Trabajo nº 34 (2ª época), Madrid, Fundación Carolina. <https://doi.org/10.33960/issn-e.1885-9119.DT34>
+
+MORALES QUIROGA, MAURICIO. (2008). Assessing Institutional Confidence in Chile: A Look from LAPOP's Findings. *Revista de ciencia política (Santiago)*, *28*(2), 161-186. <https://dx.doi.org/10.4067/S0718-090X2008000200007>
+
+Morales Quiroga, Mauricio. (2020). ESTALLIDO SOCIAL EN CHILE 2019: PARTICIPACIÓN, REPRESENTACIÓN, CONFIANZA INSTITUCIONAL Y ESCÁNDALOS PÚBLICOS. *Análisis Político*, *33*(98), 3-25. <https://doi.org/10.15446/anpol.v33n98.89407>
+
+Torcal, M., & Bargsted, M. (2015). El giro a la izquierda y la confianza institucional en América Latina. *América Latina Hoy*, 70, 15-35.
