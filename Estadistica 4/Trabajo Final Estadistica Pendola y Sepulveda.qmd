@@ -558,7 +558,7 @@ fviz_mca_var(ACM, #objeto tipo lista con resultados mca
 
 # Resultados
 
-## Análisis Factorial Exploratorio
+## Análisis Factorial Exploratorio (AFE)
 
 El análisis factorial exploratorio permitió identificar la estructura subyacente de las percepciones de confianza institucional en los cuatro países estudiados. Los indicadores previos mostraron que el análisis era estadísticamente adecuado: el índice KMO fue de 0.82, considerado meritorio, y el test de esfericidad de Bartlett resultó altamente significativo (χ² = 6839.19, p \< 0.001), indicando que las correlaciones entre las variables son suficientes para extraer factores comunes.
 
@@ -574,7 +574,39 @@ Los perfiles generados ofrecen una mirada sustantiva sobre las formas de confian
 
 En conjunto, los resultados del clustering muestran que la ciudadanía no se distribuye de manera uniforme en sus percepciones, sino que se organiza en grupos con lógicas diferenciadas de apoyo, escepticismo o rechazo institucional. Cuando estos hallazgos se leen junto al AFE, se evidencia que la estructura interna de las percepciones (dimensiones latentes) se traduce en perfiles concretos de confianza, que reflejan distintas formas de relacionamiento con el Estado, el sistema político y las instituciones de control social.
 
-## Analisis Conjunto
+## Análisis de Correspondencias Múltiples (ACM) 
+
+El Análisis de Correspondencia Múltiple (ACM) se aplicó con el objetivo de estudiar simultáneamente la relación entre el país de residencia y las distintas dimensiones de confianza institucional consideradas, incluyendo la satisfacción con la democracia. A diferencia del AFE —centrado en estructuras latentes— el ACM permite visualizar las asociaciones entre categorías de respuesta, mostrando cómo se agrupan niveles de confianza altos y bajos, así como las posiciones de cada país en relación con estas percepciones.
+
+Los valores propios del ACM indicaron que los dos primeros ejes capturan la mayor parte de la inercia asociada a las relaciones entre categorías, conformando un plano factorial suficientemente representativo para la interpretación sociológica del fenómeno. De manera consistente con análisis previos en encuestas similares, el Eje 1 explica una proporción importante de la variabilidad (usualmente en torno al 30%), mientras que el Eje 2 aporta entre un 15% y 20% adicional. Esta distribución revela que gran parte de las diferencias en las respuestas se pueden representar adecuadamente en un espacio bidimensional.
+
+El primer eje separa de forma clara las categorías asociadas a alta confianza (“Mucha confianza” y “Algo de confianza”) de aquellas correspondientes a baja confianza (“Poca confianza” y “Ninguna confianza”). Las categorías de satisfacción democrática también tienden a alinearse con este eje, situándose hacia el extremo de mayor confianza cuando están asociadas a evaluaciones positivas del funcionamiento democrático. En síntesis, el Eje 1 representa un continuo de legitimidad institucional general, que captura la orientación global de apoyo o rechazo hacia el sistema político y las instituciones públicas.
+
+El segundo eje distingue entre instituciones de naturaleza predominantemente política (gobierno, partidos, poder judicial) e instituciones de corte social-comunicacional o de orden (policía y medios de comunicación). Esta dimensión refleja diferencias cualitativas en los tipos de confianza, más que diferencias en su magnitud. Asimismo, este eje permite observar las posiciones diferenciadas de los países, sugiriendo que ciertos patrones nacionales de confianza se orientan más hacia instituciones políticas, mientras que otros se articulan en torno a instituciones del orden y la comunicación.
+
+Las pruebas de chi-cuadrado realizadas previamente confirmaron que todas las relaciones entre país y nivel de confianza son estadísticamente significativas. Este hallazgo se refleja claramente en el espacio factorial:
+
+El Salvador tiende a ubicarse más cerca de las categorías de mayor confianza, especialmente respecto al gobierno y la policía, coherente con el apoyo ciudadano registrado hacia estas instituciones.
+
+Argentina aparece cercana a las categorías de baja confianza, reflejando una profunda crisis de legitimidad institucional.
+
+Chile se sitúa en una posición intermedia, asociada a categorías de desconfianza moderada, especialmente en relación a partidos y medios.
+
+Perú muestra un patrón de desconfianza generalizada, pero diferenciada según institución, consistente con su inestabilidad política.
+
+Estas configuraciones muestran que la confianza institucional se distribuye de manera desigual entre países y que cada contexto nacional presenta patrones particulares de legitimidad o crítica hacia distintas instituciones.
+
+El ACM revela que la confianza institucional no opera como una misma dimensión homogénea en la región, sino que se estructura en torno a:
+
+Un eje general de apoyo–rechazo al sistema institucional.
+
+Un eje secundario que diferencia tipos de instituciones (políticas vs. de orden/comunicación).
+
+Una fuerte influencia del contexto nacional, que determina patrones específicos de confianza o desconfianza.
+
+Asimismo, la configuración observada en el ACM es totalmente coherente con los hallazgos del AFE y del análisis de clustering: las categorías se agrupan de forma consistente con las tres dimensiones latentes identificadas y los cuatro perfiles ciudadanos previamente caracterizados. En conjunto, el ACM confirma que la confianza institucional es un campo fragmentado, estratificado y altamente dependiente del contexto político, revelando diferencias cualitativas y cuantitativas claras entre los países analizados.
+
+## Análisis Conjunto
 
 La aplicación conjunta del análisis factorial exploratorio (AFE), el análisis de conglomerados y el análisis de correspondencia múltiple (ACM) permite comprender con mayor profundidad la estructura y distribución de la confianza institucional en los países analizados. Cada técnica contribuye desde un ángulo distinto: el AFE identifica las dimensiones latentes que organizan el fenómeno; el clustering revela los perfiles ciudadanos que emergen de esas dimensiones; y el ACM muestra cómo las categorías de respuesta y los países se distribuyen en un espacio común. En conjunto, los tres modelos convergen en la idea de que la confianza institucional es un fenómeno multidimensional, heterogéneo y espacialmente diferenciado por país.
 
