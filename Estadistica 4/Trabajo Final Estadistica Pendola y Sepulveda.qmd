@@ -1,8 +1,8 @@
 ---
 title: "Confianza Insitucional Segun la orientacion politica del Pais"
 subtitle: "Estadistica IV"
-author: "Tomás Péndola y Benjamin Sepulveda"
-date: "2025-05-29"
+authors: "Tomás Péndola y Benjamin Sepulveda"
+date: "2025-11-23"
 lang: es
 format: html
 editor: visual
